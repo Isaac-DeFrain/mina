@@ -12,11 +12,11 @@
 
 (* custom consensus parameters for the testnet release *)
 [%%define consensus_mechanism "proof_of_stake"]
-[%%define k 290]
+[%%define k 6]
 [%%define delta 0]
-[%%define slots_per_epoch 7140]
-[%%define slots_per_sub_window 7]
-[%%define sub_windows_per_window 11]
+[%%define slots_per_epoch 72]
+[%%define slots_per_sub_window 2]
+[%%define sub_windows_per_window 2]
 
 [%%define record_async_backtraces false]
 [%%define time_offsets true]
@@ -24,9 +24,9 @@
 
 [%%define plugins false]
 
-[%%define genesis_ledger "testnet_postake"]
+[%%define genesis_ledger "uat"]
 
-[%%define genesis_state_timestamp "2020-09-16 03:15:00-07:00"]
+[%%define genesis_state_timestamp "2023-05-01T17:31:54+0000"]
 [%%define block_window_duration 180000]
 
 [%%define integration_tests false]

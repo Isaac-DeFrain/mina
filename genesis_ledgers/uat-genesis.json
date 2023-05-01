@@ -1,0 +1,47 @@
+{
+  "genesis": {
+    "genesis_state_timestamp": "2023-05-01T17:31:54+0000"
+  },
+  "ledger": {
+    "name": "uat",
+    "num_accounts": 6,
+    "accounts": [
+      {
+        "pk": "B62qkyoR3SzZqukUh46e3KNQSsh8ua5by93XXdFp9yP6nYZwetrHTk5",
+        "sk": null,
+        "balance": "65500.000000000",
+        "delegate": "B62qoLMLCmsyyTmcgBsCAXzpu36cpPM539nCDk3TmYnHpznPfV5AoUC"
+      },
+      {
+        "pk": "B62qoLMLCmsyyTmcgBsCAXzpu36cpPM539nCDk3TmYnHpznPfV5AoUC",
+        "sk": null,
+        "delegate": null,
+        "balance": "500.000000000"
+      },
+      {
+        "pk": "B62qieJw2R71CruPbVgt8Z7vVPTaSYG7sPFiz6vni92hfrFS2T2YR1m",
+        "sk": null,
+        "balance": "11550000.000000000",
+        "delegate": "B62qrSk6U6LoPZVh2HTSohgYNFe6e2armLyfDmYaPmfhy8xgjTLZV5D"
+      },
+      {
+        "pk": "B62qrSk6U6LoPZVh2HTSohgYNFe6e2armLyfDmYaPmfhy8xgjTLZV5D",
+        "sk": null,
+        "balance": "0.000000000",
+        "delegate": null
+      },
+      {
+        "pk": "B62qm3VLe4XhHH8eKiZNwFrmFF4MdFsUdR7zGpDnc7V1VfcBGWK3xg6",
+        "sk": null,
+        "balance": "11550000.000000000",
+        "delegate": "B62qj9d489gr99ewmCXHHxancLrPk1VPn5uR3VBRTCX28sKWxoVV9QX"
+      },
+      {
+        "pk": "B62qj9d489gr99ewmCXHHxancLrPk1VPn5uR3VBRTCX28sKWxoVV9QX",
+        "sk": null,
+        "balance": "0.000000000",
+        "delegate": null
+      }
+    ]
+  }
+}
