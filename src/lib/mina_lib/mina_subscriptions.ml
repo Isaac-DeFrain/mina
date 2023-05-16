@@ -42,7 +42,7 @@ let add_new_subscription (t : t) ~pk =
 
 let create ~logger ~constraint_constants ~wallets ~new_blocks
     ~transition_frontier ~is_storing_all ~time_controller
-    ~upload_blocks_to_gcloud ~precomputed_block_writer =
+    ~upload_blocks_to_gcloud ~precomputed_block_writer ~log_precomputed_blocks =
   let subscribed_block_users =
     Optional_public_key.Table.of_alist_multi
     @@ List.map (Secrets.Wallets.pks wallets) ~f:(fun wallet ->
@@ -101,13 +101,26 @@ let create ~logger ~constraint_constants ~wallets ~new_blocks
   let gcloud_keyfile =
     match Core.Sys.getenv "GCLOUD_KEYFILE" with
     | Some keyfile ->
+        if upload_blocks_to_gcloud then
+          [%log info] "GCLOUD_KEYFILE environment variable set to %s" keyfile ;
         Some keyfile
     | _ ->
-        [%log warn]
-          "GCLOUD_KEYFILE environment variable not set. Must be set to use \
-           upload_blocks_to_gcloud" ;
+        if upload_blocks_to_gcloud then
+          [%log warn]
+            "GCLOUD_KEYFILE environment variable not set. Must be set to use \
+             upload_blocks_to_gcloud" ;
         None
   in
+  Option.iter (fst !precomputed_block_writer) ~f:(fun path ->
+      match path with
+      | `Path_dir path ->
+          [%log info]
+            ~metadata:[ ("path", `String path) ]
+            "Precomputed blocks will be logged to individual files in $path"
+      | `Path path ->
+          [%log info]
+            ~metadata:[ ("path", `String path) ]
+            "Precomputed blocks will be logged to the same file $path" ) ;
   Option.iter gcloud_keyfile ~f:(fun path ->
       ignore
         ( Core.Sys.command
