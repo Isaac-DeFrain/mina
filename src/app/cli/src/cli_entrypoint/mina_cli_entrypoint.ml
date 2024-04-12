@@ -1165,6 +1165,7 @@ Pass one of -peer, -peer-list-file, -seed, -peer-list-url.|} ;
               ~constraint_system_digests:
                 (Lazy.force precomputed_values.constraint_system_digests)
           in
+          [%log info] "Chain id: %s" chain_id ;
           let gossip_net_params =
             Gossip_net.Libp2p.Config.
               { timeout = Time.Span.of_sec 3.
