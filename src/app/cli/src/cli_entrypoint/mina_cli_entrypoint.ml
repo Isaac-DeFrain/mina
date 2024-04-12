@@ -1311,7 +1311,7 @@ Pass one of -peer, -peer-list-file, -seed, -peer-list-url.|} ;
                  ?precomputed_blocks_file ?precomputed_blocks_dir
                  ~log_precomputed_blocks ~upload_blocks_to_gcloud
                  ~block_reward_threshold ~uptime_url ~uptime_submitter_keypair
-                 ~stop_time ~node_status_url () )
+                 ~stop_time ~node_status_url ~node_status_type () )
           in
           { Coda_initialization.coda
           ; client_trustlist
