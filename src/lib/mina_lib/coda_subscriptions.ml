@@ -259,8 +259,8 @@ let create ~logger ~constraint_constants ~wallets ~new_blocks
                (* original functionality, appends to single file *)
                Out_channel.with_file ~append:true path ~f:(fun out_channel ->
                    Out_channel.output_lines out_channel [ json ] ) ) ;
+           (* write precomputed blocks to individual files in the directory *)
            Option.iter dir ~f:(fun path ->
-               (* write precomputed blocks to individual files in the directory *)
                let json =
                  Yojson.Safe.to_string (Lazy.force precomputed_block)
                in

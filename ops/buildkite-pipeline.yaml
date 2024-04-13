@@ -1,0 +1,16 @@
+steps:
+
+- label: "Build, Lint, and Audit"
+  command: |
+    # Get Nix version for possible debugging.
+    nix --version
+
+    # Re-clone the repo. This is necessary to avoid a bug (or design flaw) in
+    # Nix flakes that requires the source directory to be in a particular state
+    # (and to be a Git repository).
+    git clone -b "$BUILDKITE_BRANCH" https://github.com/Granola-Team/mina.git mina
+
+    # Use the Nix build (with logging) of that newly cloned repository.
+    cd mina
+    nix build -L '.?submodules=1'
+  key: build
