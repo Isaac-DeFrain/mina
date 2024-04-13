@@ -2,13 +2,7 @@
   description =
     "Mina, a cryptocurrency with a lightweight, constant-size blockchain";
   nixConfig = {
-    allow-import-from-derivation = "true";
-    extra-substituters = [ "https://storage.googleapis.com/mina-nix-cache" ];
-    extra-trusted-public-keys = [
-      "nix-cache.minaprotocol.org:fdcuDzmnM0Kbf7yU4yywBuUEJWClySc1WIF6t6Mm8h4="
-      "nix-cache.minaprotocol.org:D3B1W+V7ND1Fmfii8EhbAbF1JXoe2Ct4N34OKChwk2c="
-      "mina-nix-cache-1:djtioLfv2oxuK2lqPUgmZbf8bY8sK/BnYZCU2iU5Q10="
-    ];
+    # allow-import-from-derivation = "true";
   };
 
   inputs.utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
